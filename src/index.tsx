@@ -1,11 +1,9 @@
-import "moment/locale/vi";
 import { SnackbarProvider } from "notistack";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import App from "./App";
-import "./index.css";
 import { setLoading } from "./module/common/redux/commonReducer";
 import ConnectedIntlProvider from "./module/intl/component/ConnectedIntlProvider";
 import { setLocale } from "./module/intl/redux/intlReducer";

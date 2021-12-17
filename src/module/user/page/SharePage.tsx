@@ -29,14 +29,17 @@ const SharePage = (props: ISharePageProps) => {
 
   const { enqueueSnackbar } = useSnackbar();
 
-  const onSubmit = React.useCallback((data: ShareFormData) => {
-    shareLink(data.url);
-    enqueueSnackbar(intl.formatMessage({ id: "urlSaved" }), {
-      variant: "success",
-      anchorOrigin: { vertical: "top", horizontal: "center" },
-    });
-    reset();
-  }, [enqueueSnackbar, intl, reset]);
+  const onSubmit = React.useCallback(
+    (data: ShareFormData) => {
+      shareLink(data.url);
+      enqueueSnackbar(intl.formatMessage({ id: "urlSaved" }), {
+        variant: "success",
+        anchorOrigin: { vertical: "top", horizontal: "center" },
+      });
+      reset();
+    },
+    [enqueueSnackbar, intl, reset]
+  );
 
   const onInvalid = React.useCallback(
     (data) => {
@@ -75,7 +78,11 @@ const SharePage = (props: ISharePageProps) => {
                   rules={{ required: true }}
                   render={({ field }) => {
                     return (
-                      <BootstrapInput fullWidth {...field}></BootstrapInput>
+                      <BootstrapInput
+                        placeholder={intl.formatMessage({ id: "enterLink" })}
+                        fullWidth
+                        {...field}
+                      ></BootstrapInput>
                     );
                   }}
                 ></Controller>

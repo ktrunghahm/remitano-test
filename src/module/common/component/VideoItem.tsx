@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import * as React from "react";
-import { FormattedMessage } from "react-intl";
 
 interface IVideoItemProps {
   id: string;
@@ -11,6 +10,7 @@ const VideoItem = (props: IVideoItemProps) => {
   return (
     <Box display={"flex"} marginY={2}>
       <iframe
+        data-testid="youtubeIframe"
         width="560"
         height="315"
         src={`https://www.youtube.com/embed/${props.id}?controls=0`}
@@ -28,7 +28,7 @@ const VideoItem = (props: IVideoItemProps) => {
           </Typography>
           <br />
           <Typography style={{ fontWeight: 700 }}>
-            <FormattedMessage id="description" />
+            Description
           </Typography>
           <Typography>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt,

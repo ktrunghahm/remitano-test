@@ -11,6 +11,7 @@
   "welcome": ["Welcome {email}"],
   "shareAYoutubeMovie": ["Share a Youtube movie"],
   "youtubeUrl": ["Youtube URL:"],
+  "enterLink": ["Enter link"],
   "share": ["Share"],
   "invalidInput": ["Invalid input"],
   "invalidLogin": ["Invalid login"],
