@@ -1,3 +1,15 @@
 {
-  "test": ["Test"]
+  "test": ["Test"],
+  "funnyMovies": ["Funny Movies"],
+  "loginRegister": ["Login/Register"],
+  "email": ["Email"],
+  "password": ["Password"],
+  "enterEmail": ["Enter email"],
+  "enterPassword": ["Enter password"],
+  "shareAMovie": ["Share a movie"],
+  "logout": ["Logout"],
+  "welcome": ["Welcome {email}"],
+  "shareAYoutubeMovie": ["Share a Youtube movie"],
+  "youtubeUrl": ["Youtube URL"],
+  "share": ["Share"]
 }
