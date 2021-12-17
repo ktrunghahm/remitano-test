@@ -1,4 +1,5 @@
 import { Box, Button } from "@mui/material";
+import { useSnackbar } from "notistack";
 import { useCallback } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { FormattedMessage, useIntl } from "react-intl";
@@ -22,6 +23,7 @@ const LoginBox = (props: ILoginBoxProps) => {
   const { control, handleSubmit } = useForm<LoginFormData>({
     defaultValues: { email: "", password: "" },
   });
+  const { enqueueSnackbar } = useSnackbar();
 
   const intl = useIntl();
   const dispatch = useDispatch();
@@ -32,8 +34,22 @@ const LoginBox = (props: ILoginBoxProps) => {
       dispatch(authenIn());
       dispatch(saveUserInfo(data.email));
       navigate({ pathname: ROUTES.user });
+      enqueueSnackbar(intl.formatMessage({ id: "loginSuccess" }), {
+        variant: "success",
+        anchorOrigin: { vertical: "top", horizontal: "center" },
+      });
     },
-    [dispatch, navigate]
+    [dispatch, enqueueSnackbar, intl, navigate]
+  );
+
+  const onInvalid = useCallback(
+    (data) => {
+      enqueueSnackbar(intl.formatMessage({ id: "invalidLogin" }), {
+        variant: "error",
+        anchorOrigin: { vertical: "top", horizontal: "center" },
+      });
+    },
+    [enqueueSnackbar, intl]
   );
 
   return (
@@ -42,10 +58,11 @@ const LoginBox = (props: ILoginBoxProps) => {
       alignItems={"center"}
       justifyContent={"flex-end"}
       component="form"
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit, onInvalid)}
     >
       <Controller
         name="email"
+        rules={{ required: true }}
         render={({ field }) => (
           <InputContainer>
             <StyledInputBase
@@ -58,10 +75,12 @@ const LoginBox = (props: ILoginBoxProps) => {
       />
       <Controller
         name="password"
+        rules={{ required: true }}
         render={({ field }) => (
           <InputContainer>
             <StyledInputBase
               placeholder={intl.formatMessage({ id: "enterPassword" })}
+              type="password"
               {...field}
             />
           </InputContainer>

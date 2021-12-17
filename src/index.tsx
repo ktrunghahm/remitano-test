@@ -1,4 +1,5 @@
 import "moment/locale/vi";
+import { SnackbarProvider } from "notistack";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
@@ -26,7 +27,9 @@ ReactDOM.render(
         }}
       >
         <ConnectedIntlProvider>
-          <App />
+          <SnackbarProvider maxSnack={3}>
+            <App />
+          </SnackbarProvider>
         </ConnectedIntlProvider>
       </PersistGate>
     </Provider>

@@ -10,6 +10,10 @@
   "logout": ["Logout"],
   "welcome": ["Welcome {email}"],
   "shareAYoutubeMovie": ["Share a Youtube movie"],
-  "youtubeUrl": ["Youtube URL"],
-  "share": ["Share"]
+  "youtubeUrl": ["Youtube URL:"],
+  "share": ["Share"],
+  "invalidInput": ["Invalid input"],
+  "invalidLogin": ["Invalid login"],
+  "loginSuccess": ["Logged in"],
+  "urlSaved": ["URL shared"]
 }
