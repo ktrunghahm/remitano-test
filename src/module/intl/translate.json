@@ -15,5 +15,6 @@
   "invalidInput": ["Invalid input"],
   "invalidLogin": ["Invalid login"],
   "loginSuccess": ["Logged in"],
-  "urlSaved": ["URL shared"]
+  "urlSaved": ["URL shared"],
+  "description": ["Description:"]
 }

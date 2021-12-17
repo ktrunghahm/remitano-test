@@ -1,13 +1,13 @@
 import { Box } from "@mui/system";
 import * as React from "react";
-import { FormattedMessage } from "react-intl";
+import VideoList from "../../common/component/VideoList";
 
 interface IGuestPageProps {}
 
 const GuestPage: React.FunctionComponent<IGuestPageProps> = (props) => {
   return (
     <Box>
-      <FormattedMessage id="test" />
+      <VideoList />
     </Box>
   );
 };
