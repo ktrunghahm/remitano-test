@@ -1,11 +1,12 @@
 import React from "react";
-import { RouteProps, Route, Navigate, useLocation } from "react-router";
+import { Navigate, useLocation } from "react-router";
 
-interface Props extends RouteProps {
+interface Props {
   auth: boolean;
+  children: React.ReactNode;
 }
 
-const RedirectRoute: React.FC<Props> = (props) => {
+const RedirectOnAuth: React.FC<Props> = (props) => {
   const { auth, ...restProps } = props;
   const location = useLocation();
 
@@ -20,7 +21,7 @@ const RedirectRoute: React.FC<Props> = (props) => {
     }
     return <Navigate to={from} />;
   }
-  return <Route {...restProps} />;
+  return <>{restProps.children}</>;
 };
 
-export default RedirectRoute;
+export default RedirectOnAuth;
